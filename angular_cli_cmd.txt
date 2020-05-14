@@ -11,3 +11,5 @@ ng serve --open                     Builds and runs the application on lite-serv
 ng generate <name>                  Creates class, component, directive, interface, module, pipe and service
 
 ng build                            Builds the application
+
+ng serve --port 8183 --open         Builds and runs ther server on port - 8183
