@@ -1,0 +1,52 @@
+<!-- ---------------Property binding ------------------>
+<p>property-binding 1</p>
+<img bind-src = 'imgUrl'/>
+
+<p>property-binding 2</p>
+<img [src] = 'imgUrl'/>
+
+<p>property binding using interpolation</p>
+<img src = {{imgUrl}}/>
+
+
+<!-- ------------------Attribute binding ------------------ -->
+<!-- During html page rendering html element attributes changes to DOM properties -->
+<table border="2">
+    <tr>
+        <td>Table row 1,1</td>
+        <td>Table Row 1,2</td>
+    </tr>
+    <tr>
+        <!--ERROR: Can't bind to 'colspan' since it isn't a known property of 'td'.-->
+        <!-- <td colspan={{2}}>Table Row 2,1</td> -->
+        <!-- Attribute binding used to bind attributes of html whose corresponding node property doesnot exists -->
+        <td [attr.colspan] = "rowspn">Table Row 2</td>
+    </tr>
+</table>
+
+<!-- ------------------ Class Binding ------------------ -->
+<!-- Using class binding, we can add or remove CSS class names from an element -->
+
+<!-- Class binding syntax starts with prefix class, followed  by a dot (optional) and the name of a CSS class -->
+<p [class.myclass] = 'isColorful'>Is text colorful? : {{isColorful}}</p>
+<!-- WE prefer ngClass -->
+
+<!-- ------------------ Style Binding ------------------->
+<!-- Style binding is used to set inline styles. Syntax starts with prefix style, followed by a dot and the name of a CSS style property. -->
+<p [style.font-size.px] = "isSmall ? 16: 36">Is text small? : {{isSmall}}</p>
+<!-- We prefer ngStyle directive to set multiple inline styles at the same time. -->
+
+<!-- ------------------- Event Binding ------------------- -->
+<button (click) ="onButtonClick('random message')">Alert message</button>
+<button on-click = "onButtonClick('message using on-click')">Alert Message 2</button>
+
+
+
+
+<!-- -------------------------- Two way Binding ---------------------------  -->
+<!-- It is a mechanism where if model property value changes, it updates the element to which the property is bound to and vice versa. It uses [()] (banana in a box) -->
+<!-- import { FormsModule } from '@angular/forms'; -->
+<p><input type = "text" [(ngModel)] = "username"/></p>
+<h2>Username: {{username}}</h2>
+
+
