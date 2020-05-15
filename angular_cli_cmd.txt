@@ -1,15 +1,18 @@
 Command                                 Purpose
 -------------------------------------------------------------------
-npm install -g @angular/cli         Install angular cli globally
+npm install -g @angular/cli             Install angular cli globally
 
-ng v                                Angular CLI version
+ng v                                    Angular CLI version
 
-ng new <project name>               Creates a new angular project
+ng new <project name>                   Creates a new angular project
 
-ng serve --open                     Builds and runs the application on lite-server and launches a browser
+ng serve --open                         Builds and runs the application on lite-server and launches a browser
 
-ng generate <name>                  Creates class, component, directive, interface, module, pipe and service
+ng generate <name>                      Creates class, component, directive, interface, module, pipe and service
 
-ng build                            Builds the application
+ng build                                Builds the application
 
-ng serve --port 8183 --open         Builds and runs ther server on port - 8183
+ng serve --port 8183 --open             Builds and runs ther server on port - 8183
+
+ng generate component <component-name>  creates component
+(ng g c <component-name>)
