@@ -1,0 +1,17 @@
+.myborder{
+    border: 2px blueviolet;
+    border-style: groove;
+    text-align: center;
+}
+
+div {
+    padding: 1em;
+}
+
+.myItalics{
+    font-style: italic;
+}
+
+.alignCenter{
+    text-align: center;
+}

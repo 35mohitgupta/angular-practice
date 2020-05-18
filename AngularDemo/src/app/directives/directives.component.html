@@ -1,0 +1,104 @@
+<div>
+    <div [ngClass]= "'myborder'" *ngIf="!submitted">
+        <h3>LOGIN</h3>
+        <div>
+            <label for="username">Username: </label>
+            <input type="text" name="username" #uname>
+        </div>
+        <div>
+            <label for="password">Password: </label>
+            <input type="password" name="username" #password>
+        </div>
+        <div>
+            <button (click) = "formSubmitted(uname.value,password.value)">Login</button>
+        </div>
+    </div>
+    <div *ngIf="submitted">
+        <button (click)="submitted=false">{{isAuthenticated? 'Logout': 'Back'}}</button>
+    </div>
+    <div *ngIf="submitted" [ngClass] = '{myborder: true}'>
+        <div *ngIf="isAuthenticated; else failureMsg">
+            <h3>Welcome {{username}}</h3>
+            <h4>Item Ordered</h4>
+            <div>
+                <input type="radio" name="category" value = "All" checked (input)="filterCategory(CATEGORY.ALL)"/> All
+                <input type="radio" name="category" value="Fashion" (input)="filterCategory(CATEGORY.FASHION)"/> Fashion
+                <input type="radio" name="category" value="Electronics" (input)="filterCategory(CATEGORY.ELECTRONICS)"/> Electronics
+                <input type="radio" name="category" value="Groceries" (input)="filterCategory(CATEGORY.GROCERIES)"/> Groceries
+            </div>
+            <div>
+                <div [ngSwitch]='category'>
+                    <table [ngStyle]="{color: colorName, 'font-weight': fontWeight}" border="4" *ngSwitchCase='CATEGORY.ELECTRONICS'>
+                        <thead >
+                            <th>Index</th>
+                            <th>Item Name</th>
+                            <th>Item Price</th>
+                            <th>Category</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of filteredItem; let i = index">
+                                <td>{{i+1}}</td>
+                                <td>{{item.itemName}}</td>
+                                <td>{{item.itemPrice}}</td>
+                                <td>{{CATEGORY[item.category]}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table [ngStyle]="{color: colorName, 'font-weight': fontWeight}" border="4" *ngSwitchCase='CATEGORY.GROCERIES'>
+                        <thead>
+                            <th>Index</th>
+                            <th>Item Name</th>
+                            <th>Item Price</th>
+                            <th>Category</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of filteredItem; let i = index">
+                                <td>{{i+1}}</td>
+                                <td>{{item.itemName}}</td>
+                                <td>{{item.itemPrice}}</td>
+                                <td>{{CATEGORY[item.category]}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table [ngStyle]="{color: colorName, 'font-weight': fontWeight}" border="4" *ngSwitchCase='CATEGORY.FASHION'>
+                        <thead>
+                            <th>Index</th>
+                            <th>Item Name</th>
+                            <th>Item Price</th>
+                            <th>Category</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of filteredItem; let i = index">
+                                <td>{{i+1}}</td>
+                                <td>{{item.itemName}}</td>
+                                <td>{{item.itemPrice}}</td>
+                                <td>{{CATEGORY[item.category]}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <table [ngStyle]="{color: colorName, 'font-weight': fontWeight}" *ngSwitchDefault border="4" [ngClass]="{myItalics:true, alignCenter: true}">
+                        <thead>
+                            <th>Index</th>
+                            <th>Item Name</th>
+                            <th>Item Price</th>
+                            <th>Category</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of order; let i = index">
+                                <td>{{i+1}}</td>
+                                <td>{{item.itemName}}</td>
+                                <td>{{item.itemPrice}}</td>
+                                <td>{{CATEGORY[item.category]}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <ng-template #failureMsg>
+            <h3>Invalid Login. Please try again</h3>
+        </ng-template>
+    </div>
+
+</div>

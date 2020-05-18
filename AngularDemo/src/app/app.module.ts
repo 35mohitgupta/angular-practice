@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello/hello.component';
 import { DataBindingComponent } from './data-binding/data-binding.component';
 
-import {FormsModule} from '@angular/forms'
+import {FormsModule} from '@angular/forms';
+import { DirectivesComponent } from './directives/directives.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     HelloComponent,
-    DataBindingComponent
+    DataBindingComponent,
+    DirectivesComponent
   ],
   imports: [
     FormsModule,

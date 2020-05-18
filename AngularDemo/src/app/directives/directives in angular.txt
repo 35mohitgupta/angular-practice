@@ -1,0 +1,75 @@
+1. Directives are used to change the DOM.
+2. Component is also a directive which is helping us create a custom DOM element!
+3. can create custom directives using a class attached with @Directive decorator which adds metadata to the class.
+4. Directives are used:
+    Whenever we need to modify the DOM elements
+    To create reusable and independent code
+
+5. There are three types of directives available in Angular
+    1. Components
+    2. Structural Directives
+    3. Attribute Directives
+
+<<< COMPONENT >>>
+6. Components are directives with a template or view.
+7. @Component decorator is actually @Directive with templates(an HTML view)
+
+<<< STRUCTURAL DIRECTIVES >>>
+    Built-in structural directives - 
+    a) ngIf
+    b) ngFor
+    c) ngSwitch
+
+<<<<<<  ngIf >>>>>>>>>>>>>>>>>>>>
+
+1. ngIf directive renders components or elements conditionally based on whether an expression is true or false.
+
+2. For ngIf directive in Angular, if it is set to false, Angular removes the element from DOM, stops change detection for that component, removes it from DOM events and destroys the component. The component will be garbage collected and frees up memory.
+
+3. Component’s state might be expensive to re-construct. When ngIf is true, Angular recreates the component and its child components and runs every component’s initialization logic again. This could be expensive as a component re-fetches data again that had been in memory just moments ago
+
+<<<<<<<<<<<< ng-template >>>>>>>>>>>>>>>>>>>>>>>>>>
+
+1. ng-template is an angular element for rendering HTML. It does not get displayed directly and needs to be used with a structural directive.
+2. Here, we have used a template variable to store the <ng-template> reference. This variable can be used to display the associated <ng-template>.
+
+<<<<<<<<<<<<<<<< ngFor >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+1. ngFor directive is used to iterate over a collection of data i.e., arrays
+
+<<<<<<<<<<<<<<<<<<<< ngSwitch >>>>>>>>>>>>>>>>>>>>>
+
+1. ngSwitch adds or removes elements into the DOM tree when their expressions match the switch expression. 
+2. Its syntax contains two directives i.e. an attribute directive and a structural directive.
+
+<<<<<<<<<<<<<<<<<<<<<<<<<< Attribute directives >>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+Attribute directives changes the appearance / behavior of a component / element
+
+Following are built-in attribute directives
+    1. ngStyle
+    2. ngClass
+
+<<<<<<<< ngStyle >>>>>>>>>>>>
+1. This directive is used to modify a component/element’s style.
+2. If there are more than one css styles to apply, we can use ngStyle attribute.
+3. The expression can accept an array, string or an object.
+4. [ngStyle] = "expression"
+
+
+<<<<<<<<<<< Style Property Binding >>>>>>>>>>>>>>>>>>
+We can use the following syntax to set single css style to the element which is also known as property binding, where the style property is being bound.
+[style.<cssproperty>] = "value"
+
+<<<<<<<<<<  ngClass >>>>>>>>>>>>>>>>>>
+1. ngClass allows us to dynamically set and change the CSS classes for a given DOM element. 
+2. If we have more than one CSS class to apply, then we will go for ngClass, else can use class property binding
+3. The expression can accept an array, string or an object.
+    [ngClass] = "expression" 
+    [ngClass] = "{css_class_name1 : Boolean expression, css_class_name2: Boolean expression, ……}"
+
+<<<<<<<<<<< Class Property Binding >>>>>>>>>>>>>>>>>>>
+
+We can use the following syntax to set single css class to the element which is also known as property binding or class binding, where the class property is being bound.
+[class.<css_class_name>] = "property/value"
+
