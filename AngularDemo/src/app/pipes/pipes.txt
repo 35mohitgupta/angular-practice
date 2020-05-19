@@ -1,0 +1,109 @@
+<<<<<<<<<<<<<<<< PIPES >>>>>>>>>>>>>>>>>>>>>>
+Pipes are used to format the data before displaying it to the user. 
+A pipe takes data as input and transforms it into the desired output.
+---syntax---
+{{ expression | pipe }}
+
+>> Built-in Pipes <<
+1. uppercase
+2. lowercase
+3. titlecase
+4. currency
+5. date
+6. percent
+7. slice
+8. decimal
+9. json
+
+<<<<<<<<<<<< Optional Pipes >>>>>>>>>>>>>>>>>>>>>
+
+A pipe can also have optional parameters to change the output. 
+To pass parameters, after a pipe name add a colon( : ) followed by the parameter value.
+----syntax----
+{{ value | pipename [: parametervalue] }}
+
+A pipe can also have multiple parameters as shown below:
+----syntax----
+{{ value | pipename [: parametervalue1 [: parametervalue2] ] }}
+
+4. >>>>>>>> currency <<<<<<<<<<<<<
+This pipe displays the currency symbol before the expression. By default, it displays currency symbol $
+-------syntax---------
+{{ value | currency [ : currencyCode [ : display [ : digitsInfo [ : locale ] ] ] ] }}
+
+1. currencyCode ->  is of string type. It takes the code to display such as INR for the rupee, EUR for the euro, etc.
+2. display -> is the format for the currency indicator. It can take the following values:
+    'code' | 'symbol' | string | boolean
+    1. 'code' - Shows the currency code (such as USD).
+    2. 'symbol' - Shows the currency symbol (such as $)
+    3. string - Use the given string value instead of a code or a symbol.
+    4. boolean - (marked deprecated in v5): true for symbol and false for code.
+    Note:  Default is 'symbol'
+
+ 3. digitInfo is a string in the following format
+    {minIntegerDigits}.{minFractionDigits} - {maxFractionDigits}
+
+    1. minIntegerDigits is the minimum integer digits to display. Default value is 1
+    2. minFractionDigits is the minimum number of digits to display after fraction. Default value is 0
+    3. maxFractionDigits is the maximum number of digits to display after fraction. Default value is 3
+
+4. locale is a string type param. 
+    A locale code for the locale format rules to use. When not supplied, uses the value of Locale_ID which is en-US by default. It is optional and the default value is undefined.
+
+
+
+ >>>>>>>>>>>>>>>>> DATE pipe<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+1. used to display the date in the required format.
+        ----syntax----
+        {{ expression | date [:format [:timezone [:locale] ]] }}
+
+2. The expression is a date or number in milliseconds
+3. The format indicates in which form date/time should be displayed. Following are the pre-defined options for it.
+
+    1) 'medium' :equivalent to 'MMM d, y, h:mm:ss a' (e.g. Jan 31, 2018, 11:05:04 AM)
+    2) 'short': equivalent to 'M/d/yy, h:mm a' (e.g. 1/31/2018, 11:05 AM)
+    3) 'long': equivalent to 'MMMM d, y, h:mm:ss a z' (e.g. January 31, 2018 at 11:05:04 AM GMT+5)
+    4) 'full': equivalent to 'EEEE, MMMM d, y, h:mm:ss a zzzz' (e.g. Wednesday, January 31, 2018 at 11:05:04 AM GMT+05:30)
+    5) 'fullDate': equivalent to 'EEEE, MMMM d, y' (e.g. Wednesday, January 31, 2018)
+    6) 'longDate' : equivalent to 'MMMM d, y' (e.g. January 31, 2018)
+    7) 'mediumDate' : equivalent to 'MMM d, y' (e.g. Jan 31, 2018)
+    8) 'shortDate' : equivalent to 'M/d/yy' (e.g. 1/31/18)
+    9) 'mediumTime' : equivalent to 'h:mm:ss a' (e.g. 11:05:04 AM)
+    10) 'shortTime' :  equivalent to 'h:mm a' (e.g. 11:05 AM)
+    11) 'longTime': equivalent to 'h:mm a' (e.g. 11:05:04 AM GMT+5)
+    12) 'fullTime': equivalent to 'h:mm:ss a zzzz' (e.g. 11:05:04 AM GMT+05:30)
+    Timezone to be used for formatting. For example, ’+0430’ (4 hours, 30 minutes east of the Greenwich meridian) If not specified, the local system timezone of the end-users browser will be used.
+
+    >>>>>>>>>>>>>>>>>>>>>> SLICE pipe <<<<<<<<<<<<<<<<<<<<<<<<
+
+1.  used to extract a subset of elements or characters from an array or string respectively.
+    ----syntax----
+    {{ expression | slice:start:end }}
+2. The expression can be an array or string
+
+3. start represents the starting position in an array or string to extract items. It can be
+    -> A positive integer which will extract from the given position till the end
+    -> A negative integer which will extract the given number of items from the end
+
+4. end represents the ending position in an array or string for extracting items. It can be
+    -> A positive number which returns all items before end index
+    -> A negative number which returns all items before end index from the end of the array or string
+
+
+
+    >>>>>>>>>>>>----------- CUSTOM PIPES --------- >>>>>>>>>>>>>>>>>
+NOTE - if we want to implement functionalities such as sorting, filtering, etc., we should go for custom pipes as there are no corresponding built-in pipes available
+
+1. We can create our own custom pipe by inheriting PipeTransform interface
+2. PipeTransform interface has a transform() method where we need to write custom pipe functionality
+
+ >>>>>>>> Create a pipe <<<<<<<<<<<<<<
+ Create a pipe using the following CLI command:
+    ng generate pipe salutation
+
+    -> This will create two files called salutation.pipe.ts to write custom pipe functionality and salutation.pipe.spec.ts for writing unit test cases for the pipe created. 
+    -> This command will also add the pipe to the root module to make it available to the entire module
+1.  @Pipe decorator creates a pipe
+2.  Inherit PipeTransform interface for custom pipe
+3. Overrides the transform method of the PipeTransform interface to write the functionality. This method stores the value passed into the first argument called value and the parameters of the pipe into the second argument called args.
+4. Pipe is added to the declarations property to make it available to the entire module

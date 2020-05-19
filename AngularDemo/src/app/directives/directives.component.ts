@@ -12,7 +12,7 @@ export class DirectivesComponent implements OnInit {
   isAuthenticated: boolean=false;
   username: string;
   order: Item[]=[
-    new Item('ParleG',30,CATEGORY.GROCERIES),
+    new Item('parleG',30,CATEGORY.GROCERIES),
     new Item('shirts',555,CATEGORY.FASHION),
     new Item('badmuda',355,CATEGORY.FASHION),
     new Item('one plus',33555,CATEGORY.ELECTRONICS),
@@ -25,6 +25,8 @@ export class DirectivesComponent implements OnInit {
   fontWeight: string = 'bold';
   colorName: string = 'red';
 
+  //property for pipes
+  sortby: string = '--none--';
 
   constructor() { }
 

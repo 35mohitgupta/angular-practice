@@ -27,6 +27,14 @@
                 <input type="radio" name="category" value="Groceries" (input)="filterCategory(CATEGORY.GROCERIES)"/> Groceries
             </div>
             <div>
+                Sort Items by - 
+                <select [(ngModel)]="sortby">
+                    <option>--none--</option>
+                    <option value="ItemName">Item Name</option>
+                    <option value="ItemPrice">Item Price</option>
+                </select>
+            </div>
+            <div>
                 <div [ngSwitch]='category'>
                     <table [ngStyle]="{color: colorName, 'font-weight': fontWeight}" border="4" *ngSwitchCase='CATEGORY.ELECTRONICS'>
                         <thead >
@@ -36,7 +44,7 @@
                             <th>Category</th>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let item of filteredItem; let i = index">
+                            <tr *ngFor="let item of filteredItem | sortItemBy :sortby ; let i = index">
                                 <td>{{i+1}}</td>
                                 <td>{{item.itemName}}</td>
                                 <td>{{item.itemPrice}}</td>
@@ -52,7 +60,7 @@
                             <th>Category</th>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let item of filteredItem; let i = index">
+                            <tr *ngFor="let item of filteredItem | sortItemBy :sortby ; let i = index">
                                 <td>{{i+1}}</td>
                                 <td>{{item.itemName}}</td>
                                 <td>{{item.itemPrice}}</td>
@@ -68,7 +76,7 @@
                             <th>Category</th>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let item of filteredItem; let i = index">
+                            <tr *ngFor="let item of filteredItem | sortItemBy :sortby ; let i = index">
                                 <td>{{i+1}}</td>
                                 <td>{{item.itemName}}</td>
                                 <td>{{item.itemPrice}}</td>
@@ -85,7 +93,7 @@
                             <th>Category</th>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let item of order; let i = index">
+                            <tr *ngFor="let item of order | sortItemBy :sortby ; let i = index">
                                 <td>{{i+1}}</td>
                                 <td>{{item.itemName}}</td>
                                 <td>{{item.itemPrice}}</td>

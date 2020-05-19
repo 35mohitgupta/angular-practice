@@ -1,0 +1,89 @@
+<h2>PIPES IN ANGULAR</h2>
+<table border="2">
+    <tr>
+        <th>PIPES</th>
+        <th>Used to</th>
+        <th>Usage</th>
+    </tr>
+    <tr>
+        <td>uppercase</td>
+        <td>converts the template expression into uppercase.</td>
+        <td>{{ "Laptop" | uppercase }}</td>
+    </tr>
+    <tr>
+        <td>lowercase</td>
+        <td>converts the template expression into lowercase.</td>
+        <td>{{ "LAPTOP" | lowercase }}</td>
+    </tr>
+    <tr>
+        <td>titlecase</td>
+        <td>converts the first alphabet in each word of the given expression into an uppercase alphabet.</td>
+        <td>{{ "product details" | titlecase }}</td>
+    </tr>
+    <tr>
+        <td>currency</td>
+        <td> displays the currency symbol before the expression. Default- currency symbol $</td>
+        <td>
+            {{ 66600 | currency }} <!-- will display $66,600.00  --> <br>
+            {{ 66600 | currency : 'CAD' }} <!-- will display CAD$66,600.00  --> <br>
+            {{ 66600 | currency :'INR' }} <!-- will display ?66,600.00 --> <br>
+
+            {{ 66600 | currency :'INR' :'code' }} <!-- will display INR66,600.00 -->  <br>
+            {{ 66600 | currency :'INR' :'symbol' }} <!-- will display ?66,600.00 -->  <br>
+            {{ 66600 | currency :'INR' :'myOwnString' }} <!-- will display myOwnString66,600.00 -->  <br>
+
+            {{ 66600 | currency :'INR' :'code' :'6.2-3'}} <!-- will display INR066,600.00 --> <br>
+            {{ 66600 | currency :'INR' :'code' :'1.3'}} <!-- will display INR66,600.000 -->
+        </td>
+    </tr>
+    <tr>
+        <td>percent</td>
+        <td>can be used to display the number as a percentage. </td>
+        <td>
+            {{ 0.1 | percent }} will display 10%<br>
+            {{ 0.1 | percent:'2.2-3' }}<!-- will display 10.00% -->
+        </td>
+    </tr>
+    <tr>
+        <td>number</td>
+        <td>can be used to format a number</td>
+        <td>
+            {{ 25000 | number }} <!-- will display 25,000 -->
+            {{ 25000 | number:'.3-5' }} <!-- will display 25,000.000 -->
+        </td>
+    </tr>
+    <tr>
+        <td>date</td>
+        <td>can be used to display the date in the required format.</td>
+        <td>
+            {{ "6/2/2017" | date }} <!-- will display Jun 2, 2017 --><br>
+            {{ "6/2/2017, 11:30:45 AM" | date:'medium' }} <!-- will display Jun 2, 2017, 11:30:45 AM --><br>
+            {{ "6/2/2017, 11:30:45 AM" | date:'mmss' }} <!-- will display 3045{{ 90000000 | date }} will display Jan 2, 1970 – date pipe will start from Jan 1, 1970 and based on the given number of milliseconds, it displays the date -->
+        </td>
+    </tr>
+    <tr>
+        <td>slice</td>
+        <td>can be used to extract a subset of elements or characters from an array or string respectively.</td>
+        <td>
+            {{ ['a','b','c','d']| slice:2}} <!-- will display c,d --><br>
+            {{ ['a','b','c','d']| slice:1:3}} <!-- will display b,c --><br>
+            {{ 'Laptop Charger'| slice:3:6}} <!-- will display top --><br>
+            {{ 'Laptop Charger'| slice:-4}} <!-- will display rger --><br>
+            {{ 'Laptop Charger'| slice:-4:-2}} <!-- will display rg -->
+        </td>
+    </tr>
+    <tr>
+        <td>json</td>
+        <td>used to displays the given expression in the form of a JSON string.used for debugging.</td>
+        <td>
+            {{ {'productId':1234, 'productName':'Samsung Mobile'} | json  }} <!-- will display {"productId":1234, "productName":"Samsung Mobile"} -->
+        </td>
+    </tr>
+    <tr>
+        <td>Chaining of pipes</td>
+        <td>Multiple pipes can be chained together to get a more desirable output. The final output will be displayed with all the pipes applied.</td>
+        <td>
+            <p> Month is {{ "2018-11-11" | date | uppercase | slice:0:4 }} </p>
+        </td>
+    </tr>
+</table>
