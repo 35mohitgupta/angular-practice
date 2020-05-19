@@ -1,0 +1,7 @@
+<h1 *ngIf="username; else guestLogin">Parent Component Username - {{username}}</h1>
+<ng-template #guestLogin>
+    <h1>Logged in as a guest</h1>
+    <input type="text" #uname>
+    <button (click)="username = uname.value">Save Username</button>
+</ng-template>
+<app-child *ngIf="username" [username]="username" (onChangeUname)="updateUsername($event)"></app-child>

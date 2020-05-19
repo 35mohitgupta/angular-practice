@@ -9,7 +9,9 @@ import { DataBindingComponent } from './data-binding/data-binding.component';
 import {FormsModule} from '@angular/forms';
 import { DirectivesComponent } from './directives/directives.component';
 import { PipesComponent } from './pipes/pipes.component';
-import { SortItemByPipe } from './sort-item-by.pipe'
+import { SortItemByPipe } from './sort-item-by.pipe';
+import { ParentComponent } from './parent/parent.component';
+import { ChildComponent } from './child/child.component'
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { SortItemByPipe } from './sort-item-by.pipe'
     DataBindingComponent,
     DirectivesComponent,
     PipesComponent,
-    SortItemByPipe
+    SortItemByPipe,
+    ParentComponent,
+    ChildComponent
   ],
   imports: [
     FormsModule,
