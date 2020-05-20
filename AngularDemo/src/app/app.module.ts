@@ -16,6 +16,7 @@ import { ObservablesComponent } from './observables/observables.component';
 import { HttpRequestComponent } from './http-request/http-request.component'
 import {HttpClientModule} from '@angular/common/http'
 import { GetUserService } from './services/user-httpget-request';
+import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { GetUserService } from './services/user-httpget-request';
     ParentComponent,
     ChildComponent,
     ObservablesComponent,
-    HttpRequestComponent
+    HttpRequestComponent,
+    TemplateDrivenFormComponent
   ],
   imports: [
     FormsModule,

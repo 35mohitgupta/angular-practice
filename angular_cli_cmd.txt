@@ -16,3 +16,20 @@ ng serve --port 8183 --open             Builds and runs ther server on port - 81
 
 ng generate component <component-name>  creates component
 (ng g c <component-name>)
+
+ng generate pipe <pipename>             Creates a pipe with a testing class
+
+ng generate service <service>           Create a service class along with the testing class and dependency injection
+
+---------------------------------------------------------------------------------------------------------------------
+
+*********** Using Bootstrap ***************
+1. Install bootstrap
+    npm install bootstrap --save
+
+2. Include boostrap.min.css file in angular.json file as shown below
+    "styles": [
+        "src/styles.css",
+        "node_modules/bootstrap/dist/css/bootstrap.min.css"
+      ],
+Note: in some case, restarting the system may be required

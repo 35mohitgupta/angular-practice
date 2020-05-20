@@ -1,0 +1,28 @@
+Template-driven forms use ngForm and ngModel directives to get information about the form and its controls and ngSubmit event to submit the forms.
+
+1. ngForm: Provides information about the current state of the form including a JSON representation of the form value and the validity state of the entire form
+2. ngModel: Provides two-way data binding between the view and component. It is also used to track the state and validity of the input field.
+3. ngSubmit: Fires an event specified by ngSubmit when the form is submitted
+
+
+<<<<<<<<<<<<<<<<<<<<ngForm>>>>>>>>>>>>>>>>>>>>
+
+In Angular, ngForm is a directive used in a form tag to obtain the following valuable information
+    1. It gives the values from different form fields.
+    2. It indicates whether the state of form is valid or invalid.
+
+For using ngForm directive as well as to get access to all the features of forms in Angular, FormsModule needs to be imported in AppModule and added to the imports array
+
+In order to make two input controls i.e., email and password belong to ngForm directive ngModel directive is used.
+
+
+>>>>>>>>> keywords to track control state.<<<<<<<<<<<
+
+KEYWORDS                 PURPOSE
+------------------------------------------
+valid                   Valid control value
+invalid                 Invalid control value
+dirty                   Changed control value
+pristine               Unchanged control value
+touched                 True if control ie touched
+untouched               True if control ie not touched
