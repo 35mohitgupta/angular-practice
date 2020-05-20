@@ -11,7 +11,12 @@ import { DirectivesComponent } from './directives/directives.component';
 import { PipesComponent } from './pipes/pipes.component';
 import { SortItemByPipe } from './sort-item-by.pipe';
 import { ParentComponent } from './parent/parent.component';
-import { ChildComponent } from './child/child.component'
+import { ChildComponent } from './child/child.component';
+import { ObservablesComponent } from './observables/observables.component';
+import { HttpRequestComponent } from './http-request/http-request.component'
+import {HttpClientModule} from '@angular/common/http'
+import { GetUserService } from './services/user-httpget-request';
+
 
 @NgModule({
   declarations: [
@@ -22,14 +27,20 @@ import { ChildComponent } from './child/child.component'
     PipesComponent,
     SortItemByPipe,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
+    ObservablesComponent,
+    HttpRequestComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [{ 
+    provide: GetUserService, 
+    useClass: GetUserService 
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

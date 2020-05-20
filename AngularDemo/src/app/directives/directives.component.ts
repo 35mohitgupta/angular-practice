@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Item, { CATEGORY } from './Item';
+import {FilterItemsService} from '../services/filter-items.service'
 
 @Component({
   selector: 'app-directives',
@@ -28,14 +29,15 @@ export class DirectivesComponent implements OnInit {
   //property for pipes
   sortby: string = '--none--';
 
-  constructor() { }
+  constructor(private filterItemService: FilterItemsService) { }
 
   ngOnInit(): void {
   }
 
   filterCategory(category: CATEGORY){
       this.category = category;
-      this.filteredItem = this.order.filter(item => item.category==category)
+      // this.filteredItem = this.order.filter(item => item.category==category)
+      this.filteredItem = this.filterItemService.filterByCategory(this.order, category);
   }
 
   formSubmitted(username: string, password: string){

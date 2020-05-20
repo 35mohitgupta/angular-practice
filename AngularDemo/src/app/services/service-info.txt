@@ -1,0 +1,35 @@
+************************* Services ******************************
+
+>>>> Method 1 <<<<
+
+Step 1: Create the service classs with some functionalities(method)
+
+Step 2: Provide it for Dependency Injection.
+        a.1) Add @Injectable() decorator to the service class
+        a.2) Add providers property in the module class so that service class is available to the entire application.
+          The providers array contains an array of provider object. Each provider object has two main properties:
+            provide - the name of the service which is being requested
+            useClass - the name of the service which is actually injected
+          Usually provide and useClass will have the same name, i.e the object requested and object injected are the same.
+          So, a common way is to just mention the Service class name (eg, BookService) in the providers' array inside the AppModule.
+        
+        b) Add decorator as below:
+            @Injectable({
+                providedIn: 'root',
+            })
+
+Step 3: Inject the service where required as below:
+        constructor(private XService xService){}
+
+>>>> Method 2 <<<<
+
+Use following angular cli command:
+    ng generate service XService
+This will generate the service class with the required Injectable decorator.
+
+
+
+>>>>>>>>>>>>>> Pipes<<<<<<<<<<<<<<<<<<<<
+
+ Pipes lets us combine multiple functions into a single function. 
+ The pipe() function takes as its arguments the functions we want to combine, and returns a new function that, when executed, runs the composed functions in sequence.

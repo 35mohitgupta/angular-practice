@@ -1,0 +1,10 @@
+************ What is an Observable? ***********************
+
+1. An Observable is a 'collection that arrives over time'.
+2. Observable produces data which a subscriber can subscribe to and then use it. 
+3. It is like a getting a newsletter where a publishing house produces letters and customers subscribe to it and then read it
+4. In code, we can get data from an observable using subscribe() method.
+5. An observable object can be used to represent asynchronous requests
+
+    ***************** RxJS ******************
+1. RxJS is a reactive streams library used to work with asynchronous streams of data. 

@@ -1,0 +1,27 @@
+While building Angular applications, we might need the application to communicate with back-end services to fetch or persist data. This is done using HttpClientModule.
+We need to import HttpClientModule from @angular/common/http in the module class to make HTTP service available to the entire module.
+
+
+HttpClient from @angular/common/http is used to communicate with backend services
+Additional benefits of HttpClient include testability features, typed request and response objects, request and response interception, Observable APIs, and streamlined error handling.
+The HTTP get, post, put and delete methods will automatically convert the received JSON data from the back-end server, to any desired type.
+JSON is the default response type for  HttpClient.
+
+Note: The JSON object array data in the file should have the same key names of object literals as mentioned in the CustomModel class imported from './custom-model'.
+Note: http.get by default returns an observable
+
+
+Important steps to make http get request:
+
+#. imports HttpClientModule from @angular/common/http; module into AppModule and add HttpClientModule in imports section
+#. import { HttpClient } from '@angular/common/http'; in service class
+
+************* retry ********************
+import { retry } from 'rxjs/operators';
+
+  getBooks(): Observable<Book[]> {
+    return this.http.get<Book[]>(
+      this.booksUrl
+    ).pipe(
+        retry(3));
+  }

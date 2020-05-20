@@ -1,0 +1,12 @@
+<div>
+    <h2>Using Observables</h2>
+    <h4>Values of myArray:</h4>
+    <ul>
+        <li *ngFor = "let val of myArray">
+            {{val}}
+        </li>
+    </ul>
+    <div>Error - {{errors}}</div>
+    <div>Finished - {{finished}}</div>
+    <button (click)="fetchedData()">Fetch Data</button>
+</div>
