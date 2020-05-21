@@ -1,0 +1,11 @@
+****************************** Model driven or Reactive Form ***************************************
+
+With Reactive forms, we create form control objects in a component class and bind them with HTML form elements in the template.
+
+One advantage of working with form control objects directly is that value and validity updates are always synchronous and under our control.
+
+We will be using FormBuilder class to create reactive forms which has simplified syntax. 
+We need to import ReactiveFormsModule to create reactive forms.
+
+We can use built-in validators using Validators class. 
+For example, if we want to use required validator, it can be accessed as Validators.required

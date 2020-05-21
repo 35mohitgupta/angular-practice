@@ -1,0 +1,52 @@
+<br>
+<div class="row">
+    <div class="col-md-5 offset-md-3">
+        <div class="card">
+            <div class="card-header bg bg-info">
+                <h2>User Registration</h2>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="registerForm" (ngSubmit)="showDetails()">
+                    <div class="form-group">
+                        <label for="uname">User Name:</label>
+                        <input id="uname" type="text" class="form-control" formControlName="userName">
+                        <div *ngIf="registerForm.controls.userName.errors && registerForm.controls.userName.dirty" class="text-danger">Username is required</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="pswd">Password:</label>
+                        <input id="pswd" type="password" class="form-control" formControlName="password">
+                        <div *ngIf="registerForm.controls.password.errors && registerForm.controls.password.dirty" class="text-danger">Password is required</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address:</label>
+                        <input id="email" type="text" class="form-control" formControlName="email">
+                        <div *ngIf="registerForm.controls.email.errors?.required  && registerForm.controls.email.dirty" class="text-danger">Email Address is required</div>
+                        <div *ngIf="registerForm.controls.email.errors?.emailError && registerForm.controls.email.dirty" class="text-danger">{{registerForm.controls.email.errors.emailError.message}}</div>
+                    </div>
+                    <div class="form-group">
+                        <fieldset formGroupName="address">
+                            <label for="city">City:</label>
+                            <input type="text" class="form-control" formControlName="city">
+                            <p *ngIf="registerForm.controls.address['controls'].city.errors && registerForm.controls.address['controls'].city.dirty" class="text-danger">City is required</p>
+                            <label for="pincode">Pincode:</label>
+                            <input type="number" class="form-control" formControlName="pincode">
+                            <p *ngIf="registerForm.controls.address['controls'].pincode.errors?.required && registerForm.controls.address['controls'].pincode.dirty" class="text-danger">Pincode is mandatory</p>
+                            <p *ngIf="(registerForm.controls.address['controls'].pincode.errors?.min || registerForm.controls.address['controls'].pincode.errors?.max) && registerForm.controls.address['controls'].pincode.dirty"
+                            class="text-danger">Pincode should be of 6 in length</p>
+                        </fieldset>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">Verify Details</button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <div >
+                    <h4>User Details:</h4>
+                    <p>Username: {{registerForm.get('userName').value}}</p>
+                    <p>Email: {{registerForm.get('address.city').value}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

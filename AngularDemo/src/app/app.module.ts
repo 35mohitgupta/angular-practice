@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello/hello.component';
 import { DataBindingComponent } from './data-binding/data-binding.component';
 
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { DirectivesComponent } from './directives/directives.component';
 import { PipesComponent } from './pipes/pipes.component';
 import { SortItemByPipe } from './sort-item-by.pipe';
@@ -17,6 +17,8 @@ import { HttpRequestComponent } from './http-request/http-request.component'
 import {HttpClientModule} from '@angular/common/http'
 import { GetUserService } from './services/user-httpget-request';
 import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
+import { ModelDrivenReactiveFormsComponent } from './model-driven-reactive-forms/model-driven-reactive-forms.component';
+import { HttpPostRequestComponent } from './http-post-request/http-post-request.component';
 
 
 @NgModule({
@@ -31,13 +33,16 @@ import { TemplateDrivenFormComponent } from './template-driven-form/template-dri
     ChildComponent,
     ObservablesComponent,
     HttpRequestComponent,
-    TemplateDrivenFormComponent
+    TemplateDrivenFormComponent,
+    ModelDrivenReactiveFormsComponent,
+    HttpPostRequestComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [{ 
     provide: GetUserService, 
