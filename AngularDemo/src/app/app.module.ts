@@ -19,6 +19,10 @@ import { GetUserService } from './services/user-httpget-request';
 import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
 import { ModelDrivenReactiveFormsComponent } from './model-driven-reactive-forms/model-driven-reactive-forms.component';
 import { HttpPostRequestComponent } from './http-post-request/http-post-request.component';
+import { HomeComponent } from './routing/home/home.component';
+import { LoginComponent } from './routing/login/login.component';
+import { RegisterComponent } from './routing/register/register.component';
+import { DashboardComponent } from './routing/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -35,7 +39,11 @@ import { HttpPostRequestComponent } from './http-post-request/http-post-request.
     HttpRequestComponent,
     TemplateDrivenFormComponent,
     ModelDrivenReactiveFormsComponent,
-    HttpPostRequestComponent
+    HttpPostRequestComponent,
+    HomeComponent,
+    LoginComponent,
+    RegisterComponent,
+    DashboardComponent
   ],
   imports: [
     FormsModule,

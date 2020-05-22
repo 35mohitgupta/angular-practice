@@ -18,7 +18,7 @@ export class HttpPostRequestComponent implements OnInit {
 
   ngOnInit(): void {
     this.addUserForm=this.formBuilder.group({
-      userId: ['',Validators.required],
+      userId: ['',{updateOn:'blur', validators: [Validators.required]}],
       title: ['',Validators.required],
       body: ['',Validators.required]
     })

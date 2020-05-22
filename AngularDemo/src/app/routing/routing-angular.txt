@@ -1,0 +1,31 @@
+**************************** Configuring Router ***************************
+
+The <base> tag should be present in the <head> tag in our root HTML page (index.html) to tell router how to compose navigation URLs.
+By default, a new angular app created with angular-cli will have the base tag. 
+The href="/" represents the root of the application.
+
+Angular uses Component Router to implement routing.
+Angular component router belongs to @angular/router module. To make use of routing, you should import Routes, RouterModule classes.
+
+RouterModule.forRoot() method should be used when the routes are being configured in the root module of the app.
+
+You need to configure the routes and the router will look for a corresponding route when a browser URL changes. 
+Routes is an array which contains all the route configurations. 
+Then you need to pass this array to the RouterModule.forRoot() function in the application bootstrapping function.
+
+You need to provide route configuration for default path i.e., path:'' and redirect it to the a specific route using redirectTo option. 
+pathMatch is required if redirectTo option is used which specifies how the given path should match.
+
+Note: You should not forget to import the AppRoutingModule in the AppModule. 
+    The AppRoutingModule should be added in the import array of the @NgModule() decorator of the corresponding module class (AppModule class in this case).
+
+
+******************** Router Link *****************************************
+
+There are two more parts of the router which helps in navigation.
+    1. RouterLink - binds the router to links on a page and navigates to the appropriate application view when the user clicks a link.
+    2. RouterOutlet  - used to specify where the views produced by the router is to be displayed.
+
+NOTE: The difference between href and routerLink is that href will reload the page, whereas routerLink will not reload the page.
+
+>> routerLink navigates to new url and the component is rendered in place of <router-outlet> without reloading the page.

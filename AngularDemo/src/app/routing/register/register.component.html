@@ -1,0 +1,36 @@
+<br>
+<div class="row">
+    <div class="col-md-5 offset-md-4">
+        <div class="card">
+            <div class="card-header bg bg-info">
+                <h2>Register User</h2>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="registerForm" (ngSubmit)="register()">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" class="form-control" formControlName="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="emailId">Email Id:</label>
+                        <input type="text" id="emailId" class="form-control" formControlName="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="pswd">Password:</label>
+                        <input type="password" id="pswd" class="form-control" formControlName="password">
+                    </div>
+                    <div class="form-group">
+                        <label for="phNo">Phone Number:</label>
+                        <input type="number" id="phNo" class="form-control" formControlName="phoneNo">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" [disabled]="registerForm.invalid" class="btn btn-primary btn-block">Register</button>
+                    </div>
+                    <div class="form-group">
+                        <a [routerLink]="['/home']"><button class="btn btn-primary btn-block">Back</button></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
