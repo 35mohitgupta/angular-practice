@@ -25,6 +25,21 @@ import { RegisterComponent } from './routing/register/register.component';
 import { DashboardComponent } from './routing/dashboard/dashboard.component';
 
 
+import { SocialLoginModule, AuthService } from 'angularx-social-login';
+import { AuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login';
+import { GoogleLoginComponent } from './google-login/google-login.component';
+
+const config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider('415946381024-77rn235jppk9hf9v9mjdcvnc2fqkbuks.apps.googleusercontent.com')
+  }
+])
+
+export function providerConfig(){
+  return config;
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +58,9 @@ import { DashboardComponent } from './routing/dashboard/dashboard.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    DashboardComponent
+    DashboardComponent,
+    // SocialLoginModule,
+    GoogleLoginComponent
   ],
   imports: [
     FormsModule,
@@ -52,9 +69,14 @@ import { DashboardComponent } from './routing/dashboard/dashboard.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [{ 
+  providers: [
+  AuthService,  
+  { 
     provide: GetUserService, 
     useClass: GetUserService 
+  },{
+    provide: AuthServiceConfig,
+    useFactory: providerConfig
   }],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,40 @@
+<div class="col-md-6 offset-md-4 text-center">
+    <div *ngIf="!user" class="card text-center">
+      <h6 class="card-header">
+        Login with Google Demo
+      </h6>
+      <div class="card-body">
+            <div class="card-block">
+                <h4 class="card-title">Not signed in</h4>
+            </div>
+            <div class="card-block">
+                <button class="btn  btn-primary" (click)="signInWithGoogle()">SignIn with Google</button>
+            </div>
+       </div>
+    </div>
+
+
+    <div *ngIf="user" class="card text-center">
+      <h6 class="card-header">
+         Logged In with Google
+      </h6>
+      <div class="card-body">
+            <img class="card-img-top img-responsive photo" src="{{ user.photoUrl }}">
+            <div class="card-block">
+                <h4 class="card-title">{{ user.name }}</h4>
+                <p class="card-text">{{ user.email }}</p>
+            </div>
+            <div class="card-block">
+                <button class="btn btn-danger" (click)="signOut()">Sign out</button>
+            </div>
+        </div>
+    </div>
+  </div>
+
+<!-- <div class="col-md-6 offset-3">
+    <div class="card">
+        <div class="card-header">
+            <h2>User Login</h2>
+        </div>
+    </div>
+</div> -->
